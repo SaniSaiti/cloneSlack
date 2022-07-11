@@ -1,0 +1,59 @@
+<mat-toolbar class="mat-elevation-z8">
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+    <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
+    <mat-icon *ngIf="sidenav.opened"> close </mat-icon>  
+  </button> Sani Slack Clone
+    <span class="example-spacer"></span>
+    <!-- <mat-icon>account_circle</mat-icon>
+    <span>My Account</span> -->
+    <mat-icon title="Logout">exit_to_app</mat-icon>
+</mat-toolbar>
+
+
+<mat-sidenav-container>
+    <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+        <button mat-button class="menu-button" routerLink="#">
+            <span>Developer Akademie</span>
+          </button>
+        <mat-divider></mat-divider>
+
+        <button mat-button class="menu-button" routerLink="#">
+      <mat-icon>home</mat-icon>
+      <span>Channels</span>
+      <button mat-icon-button ><mat-icon>add</mat-icon></button>
+        </button>
+        <div class="channels">
+            <span>Allgemein</span>
+            <span>Angular</span>
+            <span>Javascript</span>
+        </div>
+        <mat-divider></mat-divider>
+
+        <button mat-button class="menu-button" routerLink="#">
+      <mat-icon>person</mat-icon>
+      <span>Users</span>
+    </button>
+        <div class="channels">
+            <span>Sani</span>
+            <span>Mihai</span>
+            <span>Alex</span>
+        </div>
+        <mat-divider></mat-divider>
+
+        <button mat-button class="menu-button" routerLink="#">
+      <mat-icon>info</mat-icon>
+      <span>About</span>
+    </button>
+        <button mat-button class="menu-button" routerLink="#">
+      <mat-icon>help</mat-icon>
+      <span>Help</span>
+    </button>
+
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="content mat-elevation-z8">
+            <router-outlet></router-outlet>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores corrupti esse aliquam excepturi fugiat accusantium, enim iste, non quis dolorem facere, id nostrum beatae tempora necessitatibus voluptate perspiciatis. Quasi, iure!</p>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
