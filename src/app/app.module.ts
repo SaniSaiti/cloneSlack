@@ -13,11 +13,16 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import {MatTreeModule} from '@angular/material/tree';
 import {CdkTreeModule} from '@angular/cdk/tree';
+import {MatDialogModule} from '@angular/material/dialog';
+import { AddChannelComponent } from './add-channel/add-channel.component';
+import {MatInputModule} from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SideComponent
+    SideComponent,
+    AddChannelComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +34,10 @@ import {CdkTreeModule} from '@angular/cdk/tree';
     MatIconModule,
     MatDividerModule,
     MatTreeModule,
-    CdkTreeModule
+    CdkTreeModule,
+    MatDialogModule,
+    MatInputModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

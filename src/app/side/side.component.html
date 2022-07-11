@@ -17,7 +17,7 @@
           </button>
         <mat-divider></mat-divider>
 
-        <button mat-button class="menu-button">
+        <button (click)="openDialog()" mat-button class="menu-button">
       <mat-icon>home</mat-icon>
       <span>Channels</span>
       <button mat-icon-button ><mat-icon>add</mat-icon></button>
@@ -53,7 +53,7 @@
     <mat-sidenav-content>
         <div class="content mat-elevation-z8">
             <router-outlet></router-outlet>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores corrupti esse aliquam excepturi fugiat accusantium, enim iste, non quis dolorem facere, id nostrum beatae tempora necessitatibus voluptate perspiciatis. Quasi, iure!</p>
+            <p>Router Outlet Platz von den Channels</p>
         </div>
     </mat-sidenav-content>
 </mat-sidenav-container>

@@ -4,11 +4,9 @@ import { MatSidenav } from '@angular/material/sidenav';
 import { NavigationEnd, Router } from '@angular/router';
 import { delay, filter } from 'rxjs';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+import { MatDialog } from '@angular/material/dialog';
+import { AddChannelComponent } from '../add-channel/add-channel.component';
 
-
-import {ArrayDataSource} from '@angular/cdk/collections';
-import {FlatTreeControl} from '@angular/cdk/tree';
-import {MatTreeFlatDataSource, MatTreeFlattener} from '@angular/material/tree';
 
 
 @UntilDestroy()
@@ -25,8 +23,11 @@ export class SideComponent implements OnInit {
   sidenav!: MatSidenav;
 
   
-  constructor(private observer: BreakpointObserver, private router: Router) {
-    
+  constructor(
+    private observer: BreakpointObserver, 
+    private router: Router,
+    public dialog: MatDialog,
+   ) {    
   }
 
   ngOnInit(): void {
@@ -58,6 +59,18 @@ export class SideComponent implements OnInit {
       }
     });
   }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(AddChannelComponent);
+
+    dialogRef.afterClosed().subscribe((channelName: any) => {
+      console.log('The dialog was closed', channelName);
+      if (channelName && channelName.length > 0){
+      // Wird später in Firestore gespeichert
+      }      
+    });
+  }
+
 
 
 }

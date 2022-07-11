@@ -18,3 +18,31 @@ h4,
 p {
     margin: 0;
 }
+
+.mat-dialog-container {
+    box-shadow: 0 11px 15px -7px #0003, 0 24px 38px 3px #00000024, 0 9px 46px 8px #0000001f;
+    background: rgb(74, 21, 75);
+    color: #fff !important;
+}
+
+.mat-form-field-label {
+    color: white !important;
+}
+
+.mat-focused .mat-form-field-label {
+    /*change color of label*/
+    color: rgb(74, 21, 75)!important;
+}
+
+.mat-form-field-underline {
+    /*change color of underline*/
+    // background-color: rgb(74, 21, 75) !important;
+    // background: rgb(74, 21, 75);
+    background-color: white !important;
+}
+
+.mat-form-field-ripple {
+    /*change color of underline when focused*/
+    background-color: rgb(74, 21, 75) !important;
+    ;
+}
