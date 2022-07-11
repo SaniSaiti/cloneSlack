@@ -12,42 +12,42 @@
 
 <mat-sidenav-container>
     <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
-        <button mat-button class="menu-button" routerLink="#">
+        <button mat-button class="menu-button">
             <span>Developer Akademie</span>
           </button>
         <mat-divider></mat-divider>
 
-        <button mat-button class="menu-button" routerLink="#">
+        <button mat-button class="menu-button">
       <mat-icon>home</mat-icon>
       <span>Channels</span>
       <button mat-icon-button ><mat-icon>add</mat-icon></button>
         </button>
         <div class="channels">
-            <span>Allgemein</span>
-            <span>Angular</span>
-            <span>Javascript</span>
+            <button mat-button routerLink="#"># Allgemein</button>
+            <button mat-button># Angular</button>
+            <button mat-button># Javascript</button>
         </div>
         <mat-divider></mat-divider>
 
-        <button mat-button class="menu-button" routerLink="#">
+        <button mat-button class="menu-button">
       <mat-icon>person</mat-icon>
       <span>Users</span>
     </button>
         <div class="channels">
-            <span>Sani</span>
-            <span>Mihai</span>
-            <span>Alex</span>
+            <button mat-button routerLink="#"># Sani</button>
+            <button mat-button># Mihai</button>
+            <button mat-button># Alex</button>
         </div>
         <mat-divider></mat-divider>
 
-        <button mat-button class="menu-button" routerLink="#">
+        <button mat-button class="menu-button">
       <mat-icon>info</mat-icon>
-      <span>About</span>
-    </button>
-        <button mat-button class="menu-button" routerLink="#">
+      <button mat-button routerLink="#">About</button>
+        </button>
+        <button mat-button class="menu-button">
       <mat-icon>help</mat-icon>
-      <span>Help</span>
-    </button>
+      <button mat-button routerLink="#">Help</button>
+        </button>
 
     </mat-sidenav>
     <mat-sidenav-content>
