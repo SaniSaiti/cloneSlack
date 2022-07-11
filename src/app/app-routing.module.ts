@@ -1,32 +1,35 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { SideComponent } from './side/side.component';
 
 const routes: Routes = [
-//   path: '',
-//   pathMatch: 'full',
-//   redirectTo: 'home',
-// },
-// {
-//   path: 'home',
-  
-// },
-// {
-//   path: 'profile',
+  // {
+  // //   path: '',
+  // //   pathMatch: 'full',
+  // //   redirectTo: 'side',
+  // // },
+  // {
+  //   path: 'side',
+  //   component: SideComponent,
+  // },
+  // {
+  //   path: 'profile',
+  //   component: ProfileComponent,
+  // },
+  // {
+  //   path: 'about',
+  //   component: AboutComponent,
+  // },
+  // {
+  //   path: 'help',
+  //   component: HelpComponent,
+  // },
+  // {
+  //   path: '**',
+  //   component: NotFoundComponent,
+  // },];
+];
 
-// },
-// {
-//   path: 'about',
- 
-// },
-// {
-//   path: 'help',
- 
-// },
-// {
-//   path: '**',
-  
-// },]; 
-]
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
