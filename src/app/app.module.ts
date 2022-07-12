@@ -17,12 +17,22 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { AddChannelComponent } from './add-channel/add-channel.component';
 import {MatInputModule} from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
+import { ToolbarComponent } from './toolbar/toolbar.component';
+import { LeftSideComponent } from './left-side/left-side.component';
+import { RightSideComponent } from './right-side/right-side.component';
+import { MainComponent } from './main/main.component';
+import { ChannelComponent } from './channel/channel.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SideComponent,
-    AddChannelComponent
+    AddChannelComponent,
+    ToolbarComponent,
+    LeftSideComponent,
+    RightSideComponent,
+    MainComponent,
+    ChannelComponent
   ],
   imports: [
     BrowserModule,

@@ -1,8 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ChannelComponent } from './channel/channel.component';
 import { SideComponent } from './side/side.component';
 
 const routes: Routes = [
+  {
+     path: 'channel',
+     component: ChannelComponent,
+   },
   // {
   // //   path: '',
   // //   pathMatch: 'full',
