@@ -105,6 +105,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "cloneSlack:build:production",
+            "firebaseProject": "cloneslack-bbaf7",
+            "firebaseHostingSite": "cloneslack-bbaf7"
+          }
         }
       }
     }

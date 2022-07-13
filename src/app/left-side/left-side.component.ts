@@ -2,6 +2,9 @@ import { Component, OnInit, ViewChild  } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { MatDialog } from '@angular/material/dialog';
 import { AddChannelComponent } from '../add-channel/add-channel.component';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+
+
 
 
 
@@ -14,14 +17,26 @@ export class LeftSideComponent implements OnInit {
 
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav;
+  channelsArray: any[] = [];
 
-  
+
+ 
   constructor(
+   public firestore: AngularFirestore,
     public dialog: MatDialog,
    ) {    
+  
   }
 
   ngOnInit(): void {
+
+    this.firestore.collection('channel')
+    .valueChanges({ idField: 'id' })
+    .subscribe(channel => {
+      this.channelsArray = channel;
+      console.log(this.channelsArray);
+      
+    })
   
   }
 
@@ -31,10 +46,20 @@ export class LeftSideComponent implements OnInit {
     dialogRef.afterClosed().subscribe((channelName: any) => {
       console.log('The dialog was closed', channelName);
       if (channelName && channelName.length > 0){
-      // Wird später in Firestore gespeichert
-      }      
+      // Wird später in Firestore gespeichert   
+      this.firestore.collection('channel').add({
+      channelName
+    })
+    .then(res => {
+        console.log('rest',res);
+        // this.router.navigateByUrl('/chats/' + chat.id) // Soll spöter direkt dieser Router erstellt werden
+      
+    })
+    .catch(e => {
+        console.log(e);
+    })
+      
+    }      
     });
   }
-
-  
 }

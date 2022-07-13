@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "cloneslack-bbaf7": {
+      "hosting": {
+        "cloneSlack": [
+          "cloneslack-bbaf7"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "cloneslack-bbaf7"
+  }
+}

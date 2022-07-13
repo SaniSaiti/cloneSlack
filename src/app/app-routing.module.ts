@@ -1,22 +1,24 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ChannelComponent } from './channel/channel.component';
-import { SideComponent } from './side/side.component';
+import { DirectMesseagesComponent } from './direct-messeages/direct-messeages.component';
 
 const routes: Routes = [
   {
-     path: 'channel',
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'channel',
+  },
+  {
+     path: 'channel/:id',
      component: ChannelComponent,
    },
-  // {
-  // //   path: '',
-  // //   pathMatch: 'full',
-  // //   redirectTo: 'side',
-  // // },
-  // {
-  //   path: 'side',
-  //   component: SideComponent,
-  // },
+   {
+    path: 'direct-messages',
+    component: DirectMesseagesComponent,
+  },
+  
+ 
   // {
   //   path: 'profile',
   //   component: ProfileComponent,

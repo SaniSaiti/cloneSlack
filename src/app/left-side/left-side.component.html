@@ -8,10 +8,9 @@
 <span>Channels</span>
 <button mat-icon-button ><mat-icon>add</mat-icon></button>
 </button>
-<div class="channels">
-    <button mat-button routerLink="/channel"># Allgemein</button>
-    <button mat-button># Angular</button>
-    <button mat-button># Javascript</button>
+<div class="channels" *ngFor="let channel of channelsArray">
+    <button mat-button [routerLink]="'/channel/' + channel.id "># {{ channel.channelName }}</button>
+
 </div>
 <mat-divider></mat-divider>
 
@@ -20,7 +19,7 @@
 <span>Users</span>
 </button>
 <div class="channels">
-    <button mat-button routerLink="#"># Sani</button>
+    <button mat-button routerLink="/direct-messages"># Sani</button>
     <button mat-button># Mihai</button>
     <button mat-button># Alex</button>
 </div>

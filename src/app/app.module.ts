@@ -22,6 +22,17 @@ import { LeftSideComponent } from './left-side/left-side.component';
 import { RightSideComponent } from './right-side/right-side.component';
 import { MainComponent } from './main/main.component';
 import { ChannelComponent } from './channel/channel.component';
+import { DirectMesseagesComponent } from './direct-messeages/direct-messeages.component';
+
+
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideDatabase,getDatabase } from '@angular/fire/database';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { AngularFireModule } from '@angular/fire/compat';
+
+
 
 @NgModule({
   declarations: [
@@ -32,9 +43,15 @@ import { ChannelComponent } from './channel/channel.component';
     LeftSideComponent,
     RightSideComponent,
     MainComponent,
-    ChannelComponent
+    ChannelComponent,
+    DirectMesseagesComponent
   ],
   imports: [
+    AngularFireModule.initializeApp(environment.firebase),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideDatabase(() => getDatabase()),
+    provideFirestore(() => getFirestore()),
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -47,7 +64,8 @@ import { ChannelComponent } from './channel/channel.component';
     CdkTreeModule,
     MatDialogModule,
     MatInputModule,
-    FormsModule
+    FormsModule,    
+   
   ],
   providers: [],
   bootstrap: [AppComponent]
