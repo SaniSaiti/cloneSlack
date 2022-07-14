@@ -31,6 +31,7 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
+import { ThreadComponent } from './thread/thread.component';
 
 
 
@@ -44,7 +45,8 @@ import { AngularFireModule } from '@angular/fire/compat';
     RightSideComponent,
     MainComponent,
     ChannelComponent,
-    DirectMesseagesComponent
+    DirectMesseagesComponent,
+    ThreadComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),

@@ -47,19 +47,21 @@ export class LeftSideComponent implements OnInit {
       console.log('The dialog was closed', channelName);
       if (channelName && channelName.length > 0){
       // Wird später in Firestore gespeichert   
-      this.firestore.collection('channel').add({
-      channelName
-    })
-    .then(res => {
-        console.log('rest',res);
-        // this.router.navigateByUrl('/chats/' + chat.id) // Soll spöter direkt dieser Router erstellt werden
-      
-    })
-    .catch(e => {
-        console.log(e);
-    })
+     this.addToCollection('channel', {channelName})
       
     }      
     });
+  }
+
+  addToCollection(collectionName : string, data : any){
+    this.firestore.collection(collectionName).add(data)
+    .then(res => {
+    console.log('rest',res);
+    // this.router.navigateByUrl('/chats/' + chat.id) // Soll spöter direkt dieser Router erstellt werden
+  
+    })
+    .catch(e => {
+      console.log(e);
+    })
   }
 }

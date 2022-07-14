@@ -9,26 +9,28 @@
 <button mat-icon-button ><mat-icon>add</mat-icon></button>
 </button>
 <div class="channels" *ngFor="let channel of channelsArray">
-    <button mat-button [routerLink]="'/channel/' + channel.id "># {{ channel.channelName }}</button>
+    <!-- <button mat-button [routerLink]="'/channel/' + channel.id"># {{ channel.channelName }}</button> -->
+    <button mat-button [routerLink]="[{ outlets: { primary: ['/channel/' + channel.id],thread:['thread'] } }]"># {{ channel.channelName }}</button>
 
 </div>
 <mat-divider></mat-divider>
 
-<button mat-button class="menu-button">
+<button mat-button class=" menu-button ">
 <mat-icon>person</mat-icon>
 <span>Users</span>
 </button>
-<div class="channels">
-    <button mat-button routerLink="/direct-messages"># Sani</button>
+<div class="channels ">
+    <!-- <button mat-button [routerLink]="'/direct-messages'"># Sani</button> -->
+    <!-- <button mat-button [routerLink]="[{ outlets: { primary: ['direct-messages'],thread:['thread'] } }]"># Sani</button> -->
     <button mat-button># Mihai</button>
     <button mat-button># Alex</button>
 </div>
 <!-- <mat-divider></mat-divider> -->
-<button mat-button class="menu-button">
+<button mat-button class="menu-button ">
 <mat-icon>info</mat-icon>
-<button mat-button routerLink="#">About</button>
+<button mat-button routerLink="# ">About</button>
 </button>
-<button mat-button class="menu-button">
+<button mat-button class="menu-button ">
 <mat-icon>help</mat-icon>
-<button mat-button routerLink="#">Help</button>
+<button mat-button routerLink="# ">Help</button>
 </button>
