@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SideComponent } from './side/side.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
@@ -23,6 +22,7 @@ import { RightSideComponent } from './right-side/right-side.component';
 import { MainComponent } from './main/main.component';
 import { ChannelComponent } from './channel/channel.component';
 import { DirectMesseagesComponent } from './direct-messeages/direct-messeages.component';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
@@ -46,7 +46,8 @@ import { ThreadComponent } from './thread/thread.component';
     MainComponent,
     ChannelComponent,
     DirectMesseagesComponent,
-    ThreadComponent
+    ThreadComponent,
+    
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
@@ -66,7 +67,10 @@ import { ThreadComponent } from './thread/thread.component';
     CdkTreeModule,
     MatDialogModule,
     MatInputModule,
-    FormsModule,    
+    FormsModule, 
+    CKEditorModule,
+    
+    
    
   ],
   providers: [],

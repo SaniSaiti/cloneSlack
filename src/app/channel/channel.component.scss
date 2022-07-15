@@ -1,0 +1,50 @@
+.messageContainer {
+    display: flex;
+    height: auto;
+    max-width: 99%;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    align-items: stretch;
+    background-color: #eee;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.26), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.messageData {
+    flex: 1;
+    padding: 10px;
+    font-size: 0.7em;
+}
+
+.sender {
+    display: block;
+    color: #222;
+    font-weight: bold;
+}
+
+.timestamp {
+    color: #555;
+    font-style: italic;
+}
+
+.messageContent {
+    height: auto;
+    flex: 9;
+    background-color: #fff;
+    padding: 10px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+div {
+    ckeditor {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        left: 0;
+    }
+    mat-icon {
+        position: absolute;
+        bottom: 8px;
+        right: 16px;
+    }
+}

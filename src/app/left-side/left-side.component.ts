@@ -34,10 +34,8 @@ export class LeftSideComponent implements OnInit {
     .valueChanges({ idField: 'id' })
     .subscribe(channel => {
       this.channelsArray = channel;
-      console.log(this.channelsArray);
-      
-    })
-  
+      console.log(this.channelsArray);      
+    })  
   }
 
   openDialog(): void {
@@ -54,7 +52,8 @@ export class LeftSideComponent implements OnInit {
   }
 
   addToCollection(collectionName : string, data : any){
-    this.firestore.collection(collectionName).add(data)
+    this.firestore.collection(collectionName)
+    .add(data)
     .then(res => {
     console.log('rest',res);
     // this.router.navigateByUrl('/chats/' + chat.id) // Soll spöter direkt dieser Router erstellt werden

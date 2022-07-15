@@ -1,1 +1,19 @@
-<p>channel works!</p>
+<div class="messageContainer" *ngFor="let message of messageArray">
+    <div class="messageData">
+        <span class="sender">
+           {{message.username}}
+        </span>
+        <span class="timestamp">
+            {{message.id}}
+        </span>
+    </div>
+    <div class="messageContent">
+        {{message.textMessage}}
+    </div>
+    <div>
+        <ckeditor [(ngModel)]="textValue" [editor]="editor">
+        </ckeditor>
+        <mat-icon (click)="sendMessage()" title="Send">send</mat-icon>
+    </div>
+    <button (click)="openThreads(message.id)">Antworten</button>
+</div>
