@@ -11,8 +11,6 @@
 </button>
 <div class="channels" *ngFor="let channel of channelsArray">
     <button mat-button [routerLink]="'/channel/' + channel.id"># {{ channel.channelName }}</button>
-    <!-- <button mat-button [routerLink]="[{ outlets: { primary: ['channel/:id'],thread:['thread']}}]">#  {{channel.channelName}} </button> -->
-
 </div>
 <mat-divider></mat-divider>
 

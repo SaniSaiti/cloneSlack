@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+
+
 @Component({
   selector: 'app-right-side',
   templateUrl: './right-side.component.html',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RightSideComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+ 
+  ) { }
 
   ngOnInit(): void {
-  }
-
+   
+   
+}
 }

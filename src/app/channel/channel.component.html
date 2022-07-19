@@ -11,9 +11,9 @@
         {{message.textMessage}}
     </div>
     <div>
-        <ckeditor [(ngModel)]="textValue" [editor]="editor">
+        <ckeditor [(ngModel)]=" textValue " [editor]="editor ">
         </ckeditor>
-        <mat-icon (click)="sendMessage()" title="Send">send</mat-icon>
+        <mat-icon (click)="sendMessage() " title="Send ">send</mat-icon>
     </div>
-    <button (click)="openThreads(message.id)">Antworten</button>
+    <button (click)="serviceTr.openThreads(message) ">Antworten</button>
 </div>
