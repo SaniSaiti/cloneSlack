@@ -37,7 +37,7 @@ export class DataService {
 
   openThreads(message:any) {
     this.router.navigate([{ outlets: { primary: 'channel/' + this.channelId, thread: 'thread/' + message.id } }]);
-    this.serviceArray = message;  
+    this.serviceArray.push(message);  
     console.log(this.serviceArray);
        
 }

@@ -1,4 +1,4 @@
-<div class="messageContainer" *ngFor="let message of threadArray">
+<div class="messageContainer" *ngFor="let message of threadsArray">
     <div class="messageData">
         <span class="sender">
            {{message.username}}  
@@ -10,9 +10,27 @@
     <div class="messageContent">
         {{message.textMessage}}
     </div>
+    ------------------------------
     <div>
         <ckeditor [(ngModel)]="textValue" [editor]="editor">
         </ckeditor>
         <mat-icon (click)="sendMessage() " title="Send">send</mat-icon>
+    </div>
+
+</div>
+
+
+
+<div class="messageContainer" *ngFor="let messa of threadArray">
+    <div class="messageData">
+        <span class="sender">
+           {{messa.username}}  
+        </span>
+        <span class="timestamp">
+            {{messa.id}}
+        </span>
+    </div>
+    <div class="messageContent">
+        {{messa.textMessage}}
     </div>
 </div>

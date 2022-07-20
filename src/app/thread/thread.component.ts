@@ -13,10 +13,15 @@ import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 })
 export class ThreadComponent implements OnInit {
 
-  threadsArray:any = [];
-  threadArray:any = [];
+  threadsArray: any = [];
+  threadArray: any  = [];
   textValue: any = '';
   id:any;  
+
+  testArray:any = {
+    username: '',
+    textMessage: ''
+  };
 
   public editor = ClassicEditor;
 
@@ -29,30 +34,55 @@ export class ThreadComponent implements OnInit {
    ) {}
 
   ngOnInit(): void {
+   
+   
 
     this.activRoute.paramMap.subscribe((param) => {
     this.id = param.get('id')
+
   
     
     this.firestore
     .collection("channel")
-    .doc(this.dataServ.channelId)
-    .collection("message")
+    .doc(this.id)
+    .collection("thread")
     // .doc(this.id)
     .valueChanges({ idField: 'id' })
     .subscribe(data => {
-      console.log('data',data);;
-      this.threadsArray = data;
-       this.threadArray = this.threadsArray.filter(index => index.id === this.dataServ.serviceArray.id)
-      //  console.log(this.threadsArray);
-      // this.threadArray = this.dataServ.serviceArray.valueOf()
-      console.log('valueof',this.threadArray);
+      console.log('data',data)
+      this.threadArray = data;
+     
+     this.threadsArray = this.dataServ.serviceArray.slice(-1);
+      console.log('thresSrevec', this.threadsArray);
+      
+      // const values = Object.values(this.dataServ.serviceArray);
+      // this.threadsArray = values;
+  
+      // this.threadsArray.push(this.dataServ.serviceArray);
+      // this.threadArray = this.threadsArray.slice(-1);
+      // console.log(this.threadArray);
+      
       });
     }); 
   }
   
   sendMessage(){
-    console.log('Hallo');
+    let result = this.textValue.replace(/<\/?p>/g, "");
+    console.log(result);
+    const  probetest = this.testArray;
+    probetest.username = 'Sani';
+    probetest.textMessage = result;
+
+    console.log(probetest);
+    
+    this.firestore
+    .collection("channel")
+    .doc(this.id)
+    .collection('thread')
+    .add(probetest);
+    this.textValue = '';
     
   }
 }
+
+

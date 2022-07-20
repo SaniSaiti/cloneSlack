@@ -21,7 +21,10 @@ export class ChannelComponent implements OnInit {
 
   public editor = ClassicEditor;
   
-   
+  testArray:any = {
+    username: '',
+    textMessage: ''
+  };
 
   constructor(
     public serviceTr: DataService,
@@ -61,12 +64,17 @@ export class ChannelComponent implements OnInit {
   sendMessage() {
     let result = this.textValue.replace(/<\/?p>/g, "");
     console.log(result);
+    const  probetest = this.testArray;
+    probetest.username = 'Sani';
+    probetest.textMessage = result;
     
-    this.firestore.collection("channel").doc(this.id).collection('message').add({
-      username: 'Sani',
-      textMessage: result,
-
-    })
+    this.firestore
+    .collection("channel")
+    .doc(this.id)
+    .collection('message')
+    .add(
+      probetest
+      )
     this.textValue = '';
   }
   // scrollToBottom(): void {
