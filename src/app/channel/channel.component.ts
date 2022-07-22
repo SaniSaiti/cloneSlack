@@ -1,8 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { DataService } from '../Services/threadService';
+import { ChangeEvent } from '@ckeditor/ckeditor5-angular';
 
 
 @Component({
@@ -12,9 +13,10 @@ import { DataService } from '../Services/threadService';
 })
 export class ChannelComponent implements OnInit {
   id: any;
-  textValue: any = '';
+  textValue: any;
   messageArray: any[] = [];
   chatId!: any;
+  iconChangeColor:boolean = false;
 
   @Input() rThread:any;
  
@@ -28,16 +30,16 @@ export class ChannelComponent implements OnInit {
 
   constructor(
     public serviceTr: DataService,
-    private router: Router,
     private activRoute: ActivatedRoute,
     public firestore: AngularFirestore,
+    public el: ElementRef, 
+    // public renderer: Renderer
   ) { }
 
   ngOnInit() {
     this.activRoute.paramMap.subscribe((param) => {
       this.id = param.get('id')
       this.serviceTr.channelId = this.id;
-      console.log('dataSrv',this.serviceTr.channelId);
 
 
       this.firestore
@@ -54,29 +56,44 @@ export class ChannelComponent implements OnInit {
     })
   }
 
-  // openThreads(message:any) {
-  //   this.router.navigate([{ outlets: { primary: 'channel/' + this.id, thread: 'thread/' + message.id } }]);
-   
-  // }
-
   // Wird geändert über eine Allgemeine Funktion (Service/Model) für alles was im Firestore 
   // gespeichert wird Wie im Left Side Komponent Zeile 54 addToCollection(collectionName : string, data : any)
   sendMessage() {
-    let result = this.textValue.replace(/<\/?p>/g, "");
-    console.log(result);
-    const  probetest = this.testArray;
-    probetest.username = 'Sani';
-    probetest.textMessage = result;
-    
-    this.firestore
-    .collection("channel")
-    .doc(this.id)
-    .collection('message')
-    .add(
-      probetest
-      )
-    this.textValue = '';
+ console.log(this.textValue.lenght);
+ 
+    if(this.textValue.length > 0){
+      let result = this.textValue.replace(/<\/?.+?>/g, "");
+      console.log(result);
+      const  probetest = this.testArray;
+      probetest.username = 'Sani';
+      probetest.textMessage = result;
+      
+      this.firestore
+      .collection("channel")
+      .doc(this.id)
+      .collection('message')
+      .add(
+        probetest
+        )
+      this.textValue = '';
+    }else{
+      console.log('textvalue', this.textValue);
+         
+    }
+   
   }
+
+  public onChange( { editor }: ChangeEvent ) {
+    const data = editor.getData();
+
+    if(data.length > 0){
+      this.iconChangeColor = true;
+    }else{
+      this.iconChangeColor = false
+    }
+
+
+}
   // scrollToBottom(): void {
   //   this.feedContainer.nativeElement.scrollTop
   //   = this.feedContainer.nativeElement.scrollHeight;

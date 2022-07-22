@@ -1,28 +1,27 @@
-<button mat-button class="menu-button">
-    <span>Developer Akademie</span>
-</button>
-<mat-divider></mat-divider>
+<div class="title">
+    <span>
+    Developer Akademie
+   </span>
+</div>
 
-<button (click)="openDialog()" mat-button class="menu-button">
-
+<button (click)="openDialog()" mat-button class="menu-button1">
 <mat-icon>home</mat-icon>
-<span>Channels</span>
-<button mat-icon-button><mat-icon>add</mat-icon></button>
+<span>Channels <button style="position: absolute; right: 0;" mat-icon-button><mat-icon>add</mat-icon></button></span>
 </button>
-<div class="channels" *ngFor="let channel of channelsArray">
-    <button mat-button [routerLink]="'/channel/' + channel.id"># {{ channel.channelName }}</button>
+<div (click)="service.giveChatName(channel.channelName)" class="channels" *ngFor="let channel of channelsArray">
+    <button mat-button class="menu-button" [routerLink]="'/channel/' + channel.id"># {{ channel.channelName }}</button>
 </div>
 <mat-divider></mat-divider>
 
-<button mat-button class=" menu-button ">
+<button mat-button class="menu-button">
 <mat-icon>person</mat-icon>
 <span>Users</span>
 </button>
 <div class="channels ">
-    <button mat-button [routerLink]="'/direct-messages'"># Sani</button>
+    <button mat-button [routerLink]="'/direct-messages'" class="menu-button"># Sani</button>
     <!-- <button mat-button [routerLink]="[{ outlets: { primary: ['direct-messages'],thread:['thread'] } }]"># Sani</button> -->
-    <button mat-button># Mihai</button>
-    <button mat-button># Alex</button>
+    <button mat-button class="menu-button"># Mihai</button>
+    <button mat-button class="menu-button"># Alex</button>
 </div>
 <!-- <mat-divider></mat-divider> -->
 <button mat-button class="menu-button ">

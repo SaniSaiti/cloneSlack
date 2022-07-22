@@ -1,50 +1,55 @@
 .messageContainer {
+    // position: relative;
     display: flex;
-    height: auto;
-    max-width: 99%;
     margin-bottom: 8px;
-    border-radius: 5px;
-    align-items: stretch;
-    background-color: #eee;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.26), 0 3px 6px rgba(0, 0, 0, 0.23);
-}
-
-.messageData {
-    flex: 1;
-    padding: 10px;
-    font-size: 0.7em;
+    margin-top: 8px;
+    background-color: #FFFFFF;
+    &:hover {
+        background-color: #F8F8F8;
+    }
 }
 
 .sender {
-    display: block;
-    color: #222;
-    font-weight: bold;
-}
-
-.timestamp {
-    color: #555;
-    font-style: italic;
+    padding-left: 16px;
+    padding-right: 16px;
 }
 
 .messageContent {
-    height: auto;
-    flex: 9;
-    background-color: #fff;
-    padding: 10px;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    overflow-wrap: anywhere;
 }
 
-div {
+.btn {
+    color: #1164A3;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+}
+
+.cke {
     ckeditor {
         position: absolute;
         bottom: 0;
         right: 0;
         left: 0;
     }
-    mat-icon {
-        position: absolute;
-        bottom: 8px;
-        right: 16px;
-    }
+}
+
+.icon {
+    position: absolute;
+    bottom: 34px;
+    right: 35px;
+    background: #007a5a;
+    color: #fff;
+    width: 53px;
+    text-align: center;
+    padding: 1px;
+    border-radius: 8px;
+}
+
+.icon2 {
+    position: absolute;
+    bottom: 34px;
+    right: 35px;
 }

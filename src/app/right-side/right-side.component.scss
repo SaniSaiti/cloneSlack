@@ -1,3 +1,30 @@
+.title {
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid #8a8686;
+    padding: 15px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    background-color: #FFFFFF;
+    text-align: left;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+    background-color: #FFFFFF;
+}
+
+.titleThread {
+    font-weight: bold;
+    font-size: 19px;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+.titleChannel {
+    font-size: 14px;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+    color: #606060;
+}
+
 .menu-button {
     width: 100%;
     display: flex;
@@ -15,17 +42,16 @@
     align-items: flex-start;
 }
 
-mat-sidenav {
-    margin: 16px;
-    width: 200px;
-    border-right: none;
-    background: rgb(74, 21, 75);
-    color: white;
-    border-radius: 10px;
-    padding: 16px;
-    text-align: center;
-}
-
+// mat-sidenav {
+//     margin: 16px;
+//     width: 200px;
+//     border-right: none;
+//     background: rgb(74, 21, 75);
+//     color: white;
+//     border-radius: 10px;
+//     padding: 16px;
+//     text-align: center;
+// }
 mat-sidenav-container {
     height: calc(100vh - 65px);
 }

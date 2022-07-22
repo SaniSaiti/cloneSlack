@@ -3,6 +3,7 @@ import { MatSidenav } from '@angular/material/sidenav';
 import { MatDialog } from '@angular/material/dialog';
 import { AddChannelComponent } from '../add-channel/add-channel.component';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { LeftSideService } from '../Services/lef-sideService';
 
 
 
@@ -23,7 +24,8 @@ export class LeftSideComponent implements OnInit {
  
   constructor(
    public firestore: AngularFirestore,
-    public dialog: MatDialog,
+   public dialog: MatDialog,
+   public service: LeftSideService
    ) {    
   
   }
@@ -43,9 +45,8 @@ export class LeftSideComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((channelName: any) => {
       console.log('The dialog was closed', channelName);
-      if (channelName && channelName.length > 0){
-      // Wird später in Firestore gespeichert   
-     this.addToCollection('channel', {channelName})
+      if (channelName && channelName.length > 0){      
+      this.addToCollection('channel', {channelName})
       
     }      
     });
@@ -63,4 +64,6 @@ export class LeftSideComponent implements OnInit {
       console.log(e);
     })
   }
+
+
 }

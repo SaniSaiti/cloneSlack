@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Router, Event as NavigationEvent } from '@angular/router';
 import { DataService } from '../Services/threadService';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { ChangeEvent } from '@ckeditor/ckeditor5-angular';
 
 
 @Component({
@@ -17,6 +18,7 @@ export class ThreadComponent implements OnInit {
   threadArray: any  = [];
   textValue: any = '';
   id:any;  
+  iconChangeColor:boolean = false;
 
   testArray:any = {
     username: '',
@@ -44,30 +46,26 @@ export class ThreadComponent implements OnInit {
     
     this.firestore
     .collection("channel")
+    .doc(this.dataServ.channelId)
+    .collection("message")
     .doc(this.id)
     .collection("thread")
-    // .doc(this.id)
     .valueChanges({ idField: 'id' })
     .subscribe(data => {
       console.log('data',data)
       this.threadArray = data;
      
-     this.threadsArray = this.dataServ.serviceArray.slice(-1);
-      console.log('thresSrevec', this.threadsArray);
-      
-      // const values = Object.values(this.dataServ.serviceArray);
-      // this.threadsArray = values;
-  
-      // this.threadsArray.push(this.dataServ.serviceArray);
-      // this.threadArray = this.threadsArray.slice(-1);
-      // console.log(this.threadArray);
+    //  this.threadsArray = this.dataServ.serviceArray.slice(-1);
+    //   console.log('thresSrevec', this.threadsArray);
       
       });
     }); 
   }
   
   sendMessage(){
-    let result = this.textValue.replace(/<\/?p>/g, "");
+    
+    if(this.textValue.length > 0){
+    let result = this.textValue.replace(/<\/?.+?>/g, "");
     console.log(result);
     const  probetest = this.testArray;
     probetest.username = 'Sani';
@@ -77,12 +75,30 @@ export class ThreadComponent implements OnInit {
     
     this.firestore
     .collection("channel")
+    .doc(this.dataServ.channelId)
+    .collection('message')
     .doc(this.id)
     .collection('thread')
     .add(probetest);
     this.textValue = '';
-    
+    }else{
+      console.log('HEllo');
+      
+    }
   }
+
+  
+  public onChange( { editor }: ChangeEvent ) {
+    const data = editor.getData();
+
+    if(data.length > 0){
+      this.iconChangeColor = true;
+    }else{
+      this.iconChangeColor = false
+    }
+}
+
+
 }
 
 

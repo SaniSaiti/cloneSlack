@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LeftSideService } from '../Services/lef-sideService';
 
 
 
@@ -10,7 +11,8 @@ import { Component, OnInit } from '@angular/core';
 export class RightSideComponent implements OnInit {
 
   constructor(
- 
+    public service: LeftSideService
+
   ) { }
 
   ngOnInit(): void {

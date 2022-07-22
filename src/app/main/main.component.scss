@@ -1,12 +1,31 @@
+.title {
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid #8a8686;
+    padding: 16px;
+    font-weight: bold;
+    font-size: 18px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    background-color: #FFFFFF;
+}
+
 .content {
     height: calc(100vh - 130px);
-    border-radius: 10px;
-    margin: 16px;
-    margin-left: 32px;
-    margin-right: 32px;
-    padding: 16px;
+    // border-radius: 10px;
+    // margin: 16px;
+    // margin-left: 32px;
+    // margin-right: 32px;
+    // padding: 16px;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.1);
+    // background-color: rgba(0, 0, 0, 0.1);
+    overflow-y: scroll;
+    mask-position: left bottom;
+    -webkit-mask-image: linear-gradient(to top, transparent, black), linear-gradient(to left, transparent 17px, black 17px);
+    -webkit-mask-size: 100% 20000px;
+    -webkit-mask-position: left bottom;
+    &:hover {
+        -webkit-mask-position: left top;
+    }
 }
 
 .menu-button {

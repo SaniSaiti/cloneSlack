@@ -12,6 +12,7 @@ export class DataService {
   channelId:any;
   threadID:any;
   serviceArray:any = [];
+  currentMessage: any;
   
   constructor(
     public firestore: AngularFirestore,
@@ -37,7 +38,8 @@ export class DataService {
 
   openThreads(message:any) {
     this.router.navigate([{ outlets: { primary: 'channel/' + this.channelId, thread: 'thread/' + message.id } }]);
-    this.serviceArray.push(message);  
+    //this.serviceArray.push(message); 
+    this.currentMessage = message; 
     console.log(this.serviceArray);
        
 }

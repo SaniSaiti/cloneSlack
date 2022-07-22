@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { LeftSideService } from '../Services/lef-sideService';
 
 
 
@@ -13,6 +14,7 @@ export class MainComponent implements OnInit {
  @Input()  sidenavR:any;
  
  constructor(
+  public service: LeftSideService
   ) { }
 
   ngOnInit(): void {

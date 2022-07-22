@@ -34,7 +34,7 @@ export class AppComponent {
 
   ngAfterViewInit() {
     this.observer
-    .observe(['(max-width: 800px)'])
+    .observe(['(max-width: 925px)'])
     .pipe(delay(1), untilDestroyed(this))
     .subscribe((res) => {
       if (res.matches) {
@@ -57,6 +57,9 @@ export class AppComponent {
       }
     });
   }
+
+
+  
 
 
 }

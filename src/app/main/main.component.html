@@ -1,9 +1,13 @@
-<div class="content mat-elevation-z8" style="position: relative;">
+<div class="content">
     <!-- ChannelComponent über Router -->
+    <div class="title">
+        <span>
+        # {{service.ChatName }}
+       </span>
+    </div>
     <router-outlet></router-outlet>
 
     <button type="button" mat-button (click)="sidenavR.toggle()">
         Toogle
     </button>
-
 </div>

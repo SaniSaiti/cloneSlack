@@ -1,17 +1,13 @@
-<button mat-button class="menu-button">
-    <span>Thread</span>
-</button>
-<mat-divider></mat-divider>
+<div class="title">
+    <span class="titleThread">
+        Thread
+    </span>
 
-<button mat-button class="menu-button">
- <span>router-outlet Thread  </span>
-</button>
+    <span class="titleChannel">
+    # {{service.ChatName }}
+   </span>
+</div>
+
 <div class="channels">
     <router-outlet name='thread'></router-outlet>
 </div>
-<mat-divider></mat-divider>
-
-<!-- <button mat-button class="menu-button">
-<mat-icon>person</mat-icon>
-<span>Users</span>
-</button> -->

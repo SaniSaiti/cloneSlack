@@ -1,19 +1,24 @@
 <div class="messageContainer" *ngFor="let message of messageArray">
     <div class="messageData">
         <span class="sender">
-           {{message.username}}
+            <img style="width: 30px;" src="assets/1.webp" alt="">           
         </span>
-        <span class="timestamp">
-            {{message.id}}
-        </span>
+
     </div>
     <div class="messageContent">
-        {{message.textMessage}}
+        <div style="padding-bottom: 4px;"><b>{{message.username }}</b> </div>
+        <div style="padding-right: 8px; max-width: 95%; padding-bottom: 8px;">
+            {{message.textMessage}}
+        </div>
+        <div>
+            <button class="btn" (click)="serviceTr.openThreads(message) ">Antworten</button>
+        </div>
     </div>
-    <div>
-        <ckeditor [(ngModel)]=" textValue " [editor]="editor ">
-        </ckeditor>
-        <mat-icon (click)="sendMessage() " title="Send ">send</mat-icon>
-    </div>
-    <button (click)="serviceTr.openThreads(message) ">Antworten</button>
+</div>
+
+<div class="cke">
+    <ckeditor (change)="onChange($event)" ng-minlength="1" [(ngModel)]="textValue" [editor]="editor">
+    </ckeditor>
+    <mat-icon [ngClass]="iconChangeColor ? 'icon' : 'icon2' " (click)="sendMessage()" title="send">send</mat-icon>
+
 </div>
