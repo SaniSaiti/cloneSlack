@@ -1,4 +1,4 @@
-<div class="messageContainer" *ngFor="let message of messageArray">
+<div #scroller class="messageContainer" *ngFor="let message of messageArray">
     <div class="messageData">
         <span class="sender">
             <img style="width: 30px;" src="assets/1.webp" alt="">           
@@ -16,9 +16,9 @@
     </div>
 </div>
 
-<div class="cke">
+<!-- <div class="cke">
     <ckeditor (change)="onChange($event)" ng-minlength="1" [(ngModel)]="textValue" [editor]="editor">
     </ckeditor>
     <mat-icon [ngClass]="iconChangeColor ? 'icon' : 'icon2' " (click)="sendMessage()" title="send">send</mat-icon>
 
-</div>
+</div> -->

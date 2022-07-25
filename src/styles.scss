@@ -90,3 +90,27 @@ p {
 //  ::-webkit-scrollbar-thumb:hover {
 //     background: #b30000;
 // }
+.form-container {
+    display: block;
+    max-width: 300px;
+    margin: auto;
+    background: rgb(139, 77, 141);
+    padding: 48px;
+    border-radius: 16px;
+    mat-form-field {
+        width: 100%;
+    }
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+.margin-top {
+    margin-top: 16px !important;
+}
+
+.text-center {
+    text-align: center;
+}

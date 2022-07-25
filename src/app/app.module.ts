@@ -32,6 +32,18 @@ import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
 import { ThreadComponent } from './thread/thread.component';
+import { SignupFormComponent } from './signup-form/signup-form.component';
+import { LoginFormComponent } from './login-form/login-form.component';
+import { HotToastModule } from '@ngneat/hot-toast';
+
+
+
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatMenuModule } from '@angular/material/menu';
+import { getStorage, provideStorage } from '@angular/fire/storage';
+import { ProfileComponent } from './profile/profile.component';
+import { HomeComponent } from './home/home.component';
 
 
 
@@ -47,6 +59,10 @@ import { ThreadComponent } from './thread/thread.component';
     ChannelComponent,
     DirectMesseagesComponent,
     ThreadComponent,
+    SignupFormComponent,
+    LoginFormComponent,
+    ProfileComponent,
+    HomeComponent,
     
   ],
   imports: [
@@ -55,6 +71,8 @@ import { ThreadComponent } from './thread/thread.component';
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
     provideFirestore(() => getFirestore()),
+    provideStorage(() => getStorage()),
+
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -68,7 +86,10 @@ import { ThreadComponent } from './thread/thread.component';
     MatDialogModule,
     MatInputModule,
     FormsModule, 
-    CKEditorModule,
+    CKEditorModule, HotToastModule.forRoot(),
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatMenuModule
     
     
    

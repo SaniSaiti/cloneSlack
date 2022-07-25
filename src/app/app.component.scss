@@ -12,3 +12,44 @@ mat-sidenav {
 mat-sidenav-container {
     height: calc(100vh - 50px);
 }
+
+.cke {
+    ckeditor {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        left: 0;
+    }
+}
+
+.icon {
+    position: absolute;
+    bottom: 34px;
+    right: 35px;
+    background: #007a5a;
+    color: #fff;
+    width: 53px;
+    text-align: center;
+    padding: 1px;
+    border-radius: 8px;
+}
+
+.icon2 {
+    position: absolute;
+    bottom: 34px;
+    right: 35px;
+}
+
+/// Neue Idee
+mat-toolbar {
+    justify-content: space-between;
+}
+
+.content {
+    padding: 32px;
+}
+
+.profile-image-toolbar {
+    border-radius: 100%;
+    margin-right: 8px;
+}

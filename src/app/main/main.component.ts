@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { LeftSideService } from '../Services/lef-sideService';
 
 
@@ -9,7 +9,8 @@ import { LeftSideService } from '../Services/lef-sideService';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
-    
+ 
+  @ViewChild('scroller') private feedContainer: ElementRef;
  params!:any;
  @Input()  sidenavR:any;
  
@@ -21,8 +22,15 @@ export class MainComponent implements OnInit {
   
   }
 
+
+  scrollToBottom(): void {
+    this.feedContainer.nativeElement.scrollTop
+    = this.feedContainer.nativeElement.scrollHeight;
+  }
+
+  ngAfterViewChecked() {
+    this.scrollToBottom();
+  }
  
- 
-  
 
 }

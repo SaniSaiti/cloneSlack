@@ -1,25 +1,39 @@
-<app-toolbar [sidenav]="sidenav"></app-toolbar>
+<!-- <app-side></app-side>
+<router-outlet></router-outlet> -->
 
-<mat-sidenav-container>
-    <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
-        <!-- Left Sidenav -->
-        <app-left-side></app-left-side>
-    </mat-sidenav>
+<mat-toolbar color="primary">
+    Sign Up Flow with Firebase
+    <ng-container *ngIf="user$ | async as user; else loginButton">
+        <button mat-button [matMenuTriggerFor]="userMenu">
+        <img
+          width="30"
+          height="30"
+          class="profile-image-toolbar"
+          [src]="user.photoURL ?? 'assets/images/image-placeholder.png'"
+        />
+        {{ user.displayName }}
+        <mat-icon>expand_more</mat-icon>
+      </button>
+    </ng-container>
+    <ng-template #loginButton>
+        <button mat-button routerLink="login">
+        <mat-icon>login</mat-icon>
+        Login
+      </button>
+    </ng-template>
+</mat-toolbar>
 
-    <mat-sidenav-content>
-        <!-- // COntent Chat -->
+<div class="content">
+    <router-outlet></router-outlet>
+</div>
 
-        <app-main [sidenavR]="sidenavR">
-
-        </app-main>
-
-    </mat-sidenav-content>
-
-    <mat-sidenav class="sideNavR" style="width: 300px; background-color: white; color: black;" #sidenavR="matSidenav" opened mode="side" position="end">
-        <!-- // Right Sidenav -->
-        <app-right-side>
-
-        </app-right-side>
-    </mat-sidenav>
-
-</mat-sidenav-container>
+<mat-menu #userMenu="matMenu">
+    <button mat-menu-item routerLink="/profile">
+      <mat-icon>account_circle</mat-icon>
+      Profile
+    </button>
+    <button mat-menu-item (click)="logout()">
+      <mat-icon>logout</mat-icon>
+      Logout
+    </button>
+</mat-menu>

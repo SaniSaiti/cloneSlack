@@ -1,15 +1,40 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
+import { LoginFormComponent } from './login-form/login-form.component';
+import { SignupFormComponent } from './signup-form/signup-form.component';
 import { ChannelComponent } from './channel/channel.component';
 import { DirectMesseagesComponent } from './direct-messeages/direct-messeages.component';
+
 import { ThreadComponent } from './thread/thread.component';
+import { ProfileComponent } from './profile/profile.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
+  { 
+    path: 'signup', 
+    component: SignupFormComponent 
+  },
+
+  { 
+    path: 'login', 
+    component: LoginFormComponent },
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'channel',
+    redirectTo: 'login',
   },
+
+  {
+    path: 'home',
+    component: HomeComponent,
+  },
+
+  {
+    path: 'profile',
+    component: ProfileComponent,
+  },
+
   {
      path: 'channel/:id',
      component: ChannelComponent,
@@ -26,26 +51,6 @@ const routes: Routes = [
     outlet:'thread'
   },
 
-  
-  
-  
- 
-  // {
-  //   path: 'profile',
-  //   component: ProfileComponent,
-  // },
-  // {
-  //   path: 'about',
-  //   component: AboutComponent,
-  // },
-  // {
-  //   path: 'help',
-  //   component: HelpComponent,
-  // },
-  // {
-  //   path: '**',
-  //   component: NotFoundComponent,
-  // },];
 ];
 
 @NgModule({

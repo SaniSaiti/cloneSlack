@@ -1,1 +1,33 @@
-<!-- Left Sidenav -->
+<app-toolbar [sidenav]="sidenav">
+
+</app-toolbar>
+
+<mat-sidenav-container>
+    <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+        <!-- Left Sidenav -->
+        <app-left-side></app-left-side>
+    </mat-sidenav>
+
+    <mat-sidenav-content style="position: relative;">
+        <!-- // COntent Chat -->
+
+        <app-main [sidenavR]="sidenavR">
+
+        </app-main>
+
+        <div class="cke">
+            <ckeditor (change)="onChange($event)" ng-minlength="1" [(ngModel)]="channelService.textValue" [editor]="editor">
+            </ckeditor>
+            <mat-icon [ngClass]="iconChangeColor ? 'icon' : 'icon2'" (click)="channelService.sendMessage()" title="send">send</mat-icon>
+        </div>
+
+    </mat-sidenav-content>
+
+    <mat-sidenav class="sideNavR" style="width: 300px; background-color: white; color: black;" #sidenavR="matSidenav" opened mode="side" position="end">
+        <!-- // Right Sidenav -->
+        <app-right-side>
+
+        </app-right-side>
+    </mat-sidenav>
+
+</mat-sidenav-container>

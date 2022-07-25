@@ -19,6 +19,8 @@ export class LeftSideComponent implements OnInit {
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav;
   channelsArray: any[] = [];
+  usersArray: any[] = [];
+
 
 
  
@@ -37,6 +39,14 @@ export class LeftSideComponent implements OnInit {
     .subscribe(channel => {
       this.channelsArray = channel;
       console.log(this.channelsArray);      
+    })  
+
+
+    this.firestore.collection('users')
+    .valueChanges({ idField: 'id' })
+    .subscribe(user => {
+      console.log('user', user);  
+      this.usersArray = user;    
     })  
   }
 

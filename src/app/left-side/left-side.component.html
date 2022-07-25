@@ -18,10 +18,15 @@
 <span>Users</span>
 </button>
 <div class="channels ">
-    <button mat-button [routerLink]="'/direct-messages'" class="menu-button"># Sani</button>
+    <button *ngFor="let user of usersArray" mat-button [routerLink]="'/direct-messages'" class="menu-button">
+     <div class="sender">
+        <img style="width: 30px;" src="assets/1.webp" alt="">  
+       {{user.displayName}} 
+       <span class="status">
+    </span>    
+      </div>
+    </button>
     <!-- <button mat-button [routerLink]="[{ outlets: { primary: ['direct-messages'],thread:['thread'] } }]"># Sani</button> -->
-    <button mat-button class="menu-button"># Mihai</button>
-    <button mat-button class="menu-button"># Alex</button>
 </div>
 <!-- <mat-divider></mat-divider> -->
 <button mat-button class="menu-button ">

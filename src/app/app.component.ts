@@ -1,12 +1,24 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { MatSidenav } from '@angular/material/sidenav';
-import { NavigationEnd, Router } from '@angular/router';
+// import { NavigationEnd, Router } from '@angular/router';
 import { delay, filter } from 'rxjs';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { MatDialog } from '@angular/material/dialog';
+import { ChannelService } from './Services/channelService';
 
-@UntilDestroy()
+import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { ChangeEvent } from '@ckeditor/ckeditor5-angular';
+
+
+
+import { Router } from '@angular/router';
+import { AuthService } from './Services/auth.service';
+import { UsersService } from './Services/users.service';
+
+
+
+// @UntilDestroy()
 
 @Component({
   selector: 'app-root',
@@ -14,52 +26,23 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'cloneSlack';
-
-
-  @ViewChild(MatSidenav)
-  sidenav!: MatSidenav;
-
+  title(title: any) {
+    throw new Error('Method not implemented.');
+  }
+ 
+  user$ = this.usersService.currentUserProfile$;
   
   constructor(
-    private observer: BreakpointObserver, 
-    private router: Router,
-    public dialog: MatDialog,
-   ) {    
-  }
+    private authService: AuthService,
+    public usersService: UsersService,
+    private router: Router
+  ) {}
 
-  ngOnInit(): void {
-  
-  }
-
-  ngAfterViewInit() {
-    this.observer
-    .observe(['(max-width: 925px)'])
-    .pipe(delay(1), untilDestroyed(this))
-    .subscribe((res) => {
-      if (res.matches) {
-        this.sidenav.mode = 'over';
-        this.sidenav.close();
-      } else {
-        this.sidenav.mode = 'side';
-        this.sidenav.open();
-      }
-    });
-
-  this.router.events
-    .pipe(
-      untilDestroyed(this),
-      filter((e) => e instanceof NavigationEnd)
-    )
-    .subscribe(() => {
-      if (this.sidenav.mode === 'over') {
-        this.sidenav.close();
-      }
+  logout() {
+    this.authService.logout().subscribe(() => {
+      this.router.navigate(['/']);
     });
   }
-
-
-  
 
 
 }
