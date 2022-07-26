@@ -9,7 +9,7 @@
 <span>Channels <button style="position: absolute; right: 0;" mat-icon-button><mat-icon>add</mat-icon></button></span>
 </button>
 <div (click)="service.giveChatName(channel.channelName)" class="channels" *ngFor="let channel of channelsArray">
-    <button mat-button class="menu-button" [routerLink]="'/channel/' + channel.id"># {{ channel.channelName }}</button>
+    <button mat-button class="menu-button" [routerLink]="'channel/' + channel.id"># {{ channel.channelName }}</button>
 </div>
 <mat-divider></mat-divider>
 

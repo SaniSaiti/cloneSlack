@@ -12,7 +12,7 @@
         <!-- // COntent Chat -->
 
         <app-main [sidenavR]="sidenavR">
-
+            <router-outlet></router-outlet>
         </app-main>
 
         <div class="cke">
@@ -26,7 +26,7 @@
     <mat-sidenav class="sideNavR" style="width: 300px; background-color: white; color: black;" #sidenavR="matSidenav" opened mode="side" position="end">
         <!-- // Right Sidenav -->
         <app-right-side>
-
+            <router-outlet></router-outlet>
         </app-right-side>
     </mat-sidenav>
 

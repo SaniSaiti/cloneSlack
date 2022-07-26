@@ -41,9 +41,7 @@ export class ThreadComponent implements OnInit {
 
     this.activRoute.paramMap.subscribe((param) => {
     this.id = param.get('id')
-
-  
-    
+        
     this.firestore
     .collection("channel")
     .doc(this.dataServ.channelId)

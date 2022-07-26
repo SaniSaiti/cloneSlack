@@ -9,6 +9,7 @@ import { DirectMesseagesComponent } from './direct-messeages/direct-messeages.co
 import { ThreadComponent } from './thread/thread.component';
 import { ProfileComponent } from './profile/profile.component';
 import { HomeComponent } from './home/home.component';
+import { SideComponent } from './side/side.component';
 
 const routes: Routes = [
   { 
@@ -26,8 +27,13 @@ const routes: Routes = [
   },
 
   {
-    path: 'home',
-    component: HomeComponent,
+    path: 'side',
+    component: SideComponent,
+    children:
+    [
+      {  path:'channel/:id', component: ChannelComponent, }
+      
+    ]
   },
 
   {
@@ -35,11 +41,10 @@ const routes: Routes = [
     component: ProfileComponent,
   },
 
-  {
-     path: 'channel/:id',
-     component: ChannelComponent,
-    
-  },
+  // {
+  //    path: 'channel/:id',
+  //    component: ChannelComponent,  
+  // },
   
   {
     path: 'direct-messages',
